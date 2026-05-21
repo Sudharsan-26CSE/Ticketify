@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload | Ticketify</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .upload-container {
+            background: rgba(30, 41, 59, 0.7);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .msg {
+            color: #D4AF37;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        input[type="file"] {
+            margin-bottom: 1.5rem;
+            display: block;
+            width: 100%;
+        }
+
+        .btn-gold {
+            width: 100%;
+            padding: 0.8rem;
+            background: #D4AF37;
+            color: black;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="upload-container">
+        <h2 style="margin-bottom: 1rem;">Upload File</h2>
+        <div th:if="${msg}" class="msg" th:text="${msg}"></div>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required />
+            <button type="submit" class="btn-gold">Upload</button>
+        </form>
+    </div>
+</body>
+
+</html>
